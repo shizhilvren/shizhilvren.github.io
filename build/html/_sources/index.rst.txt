@@ -15,3 +15,11 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+   doc/lean语言指北
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
