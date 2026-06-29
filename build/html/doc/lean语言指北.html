@@ -271,7 +271,7 @@
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[
-1+2+3+...+100=?
+0+1+2+...+100=?
 \]</div>
 </div>
 <p>我们可以在不借助任何计算工具的条件下写出的计算过程</p>
@@ -279,10 +279,10 @@
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-&amp;1+2+3+4+...+100 \\
-=&amp;(1+2)+3+4+...+100 \\
-=&amp;(3+3)+4+...+100 \\
-=&amp;(6+4)+...+100 \\
+&amp;0+1+2+3+...+100 \\
+=&amp;(0+1)+2+3+...+100 \\
+=&amp;(1+2)+3+...+100 \\
+=&amp;(3+3)+...+100 \\
 =&amp;... \\
 =&amp;5050
 \end{align}
@@ -291,7 +291,7 @@
 <p>这个计算过程非常的直观，就是从左到右一个个数加过去。朴实而原始。那么如果我们考虑“使用计算机来辅助计算”，我们就会得到如下程序</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum_one_to_one_hundred</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
@@ -302,7 +302,7 @@
 但这完成了一个非常了不起的过程，我们第一次进行了“使用计算机来辅助计算”，计算机代替我们完成了繁琐的计算过程。</p>
 </section>
 <section id="n">
-<h3>计算<span class="math notranslate nohighlight">\(1+2+3+...+n=?\)</span><a class="headerlink" href="#n" title="Link to this heading">¶</a></h3>
+<h3>计算<span class="math notranslate nohighlight">\(0+1+2+...+n=?\)</span><a class="headerlink" href="#n" title="Link to this heading">¶</a></h3>
 <p>更进一步如果将问题改为</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
@@ -313,9 +313,9 @@
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{align}
-&amp;1+2+3+...+n \\
-=&amp;3+3+...+n \\
-=&amp;6+...+n \\
+&amp;0+1+2+...+n \\
+=&amp;1+2+...+n \\
+=&amp;3+...+n \\
 =&amp;... \\
 \end{align}
 \end{split}\]</div>
@@ -326,9 +326,9 @@
 \[请依照加法的计算方法一个个加过去，直到加到了n\]</div>
 </div>
 <p>当然如果我们“使用计算机来辅助计算”，依然可以写出</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum_one_to_n</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum_zero_to_n_directly</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="n">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">i</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
@@ -337,7 +337,7 @@
 </div>
 <p>“使用计算机来辅助计算”并不在乎是否给出了一个具体的<span class="math notranslate nohighlight">\(n\)</span>。因为它是上面人肉计算的一种翻译。这个程序只是将“<span class="math notranslate nohighlight">\(请依照加法的计算方法一个个加过去，直到加到了n\)</span>”这句话翻译成了计算机理解的形式。</p>
 <p>当然经过一些思考还可以写出</p>
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum_one_to_n</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">sum_zero_to_n_formula</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">sum</span><span class="p">;</span>
 <span class="p">}</span>
@@ -347,7 +347,7 @@
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[
-    1+2+3+...+n = \frac{n(n+1)}{2} 
+    0+1+2+...+n = \frac{n(n+1)}{2} 
 \]</div>
 </div>
 <p>这个结论非常的基本，以至于我们我们不会怀疑它的正确性。毕竟这已经是书本上学过并验证过的的东西了。</p>
@@ -355,31 +355,87 @@
 </section>
 <section id="id5">
 <h2>使用计算机来辅助证明<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
-<p>那么下面我们就以求和公式为例演示如何“使用计算机来辅助证明”。那么我们是如何进行证明的呢？伟大的高斯告诉我们可以把这个序列颠倒着再加一遍</p>
+<p>那么下面我们就以求和公式为例演示如何“使用计算机来辅助证明”。那么我们是如何进行证明的呢？伟大的高斯告诉我们可以把这个序列颠倒着再加一遍。因此我们得到了证明：</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{aligned}
- &amp;1+&amp;2    +&amp;3    +&amp;...+&amp;(n-2)+&amp;(n-1)+&amp;n\\
-+&amp;n+&amp;(n-1)+&amp;(n-2)+&amp;...+&amp;3    +&amp;2    +&amp;1\\
+&amp;\begin{aligned}
+ &amp;0&amp;+&amp;1    &amp;+&amp;2    &amp;+&amp;...&amp;+&amp;(n-2)&amp;+&amp;(n-1)&amp;+&amp;n\\
++&amp;n&amp;+&amp;(n-1)&amp;+&amp;(n-2)&amp;+&amp;...&amp;+&amp;2    &amp;+&amp;1    &amp;+&amp;0\\
 \end{aligned}
-= (n+1) * n 
+= n \times (n + 1) \\
+\Rightarrow &amp;2\times (1+2+3+...+n) = n \times (n+1)\\
+\Rightarrow &amp;1+2+3+...+n = \frac{n(n+1)}{2}  \quad \square
+\end{aligned}
 \end{split}\]</div>
 </div>
+<p>对于人来说，证明写成这个样子基本就够用了。换言之，在大部分场合下人们都认为这个证明过程证明了上述命题。
+但对于机器来说这里有好多模棱两可的地方，比如</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(n=1.5\)</span>行不行，<span class="math notranslate nohighlight">\(n=-1\)</span>行么？</p></li>
+<li><p><span class="math notranslate nohighlight">\(0+1+2+...+n = n+(n-1)+(n-2)+...+0\)</span> 怎么就成立了？(小朋友经常问这个问题)</p></li>
+</ol>
+<p>面对这些问题，肯定有人要问这不是抬杠么。<span class="math notranslate nohighlight">\(n\)</span>当然是个自然数，加法交换律成立，<span class="math notranslate nohighlight">\(0+1+2+...+n\)</span>当然等于<span class="math notranslate nohighlight">\(n+(n-1)+(n-2)+...+0\)</span>。 但实际上这些被我们认知为理所当然的东西，是我们经年累月的训练的得到的直觉（毕竟小朋友对交换律的掌握并不熟练，就会觉得并不显然）。
+但很不幸的是计算机是一个非常傻的东西。不告诉它<span class="math notranslate nohighlight">\(n\)</span>是自然数，它会不知道<span class="math notranslate nohighlight">\(n\)</span>是什么。
+不说明 (2) 成立它就是不知道这是连续应用加法交换律的结果。
+换言之好多人觉得十分显然的东西，计算机它觉得完全不显然。将条件补充完整后得到命题</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[
-    \forall n\in \mathbb{N},\sum_{i=1}^n i = \frac{n(n+1)}{2} 
+    \forall n\in \mathbb{N},\sum_{i=1}^n i = \frac{n(n+1)}{2}
 \]</div>
 </div>
-</section>
+<p>下面就可以正式的将证明翻译成计算机可以理解的形式。</p>
 <section id="id6">
-<h2>类型&lt;-&gt;命题、实例&lt;-&gt;证明<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h2>
+<h3>描述问题<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<p>观察这个命题可以发现它是由条件</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+\forall n \in \mathbb{N}
+\]</div>
+</div>
+<p>和结论</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+\sum_{i=1}^n i = \frac{n(n+1)}{2}
+\]</div>
+</div>
+<p>两部分组成，而结论由下面三个部分组成，其中<span class="math notranslate nohighlight">\(\sum_{i=1}^n i\)</span>、<span class="math notranslate nohighlight">\(\frac{n(n+1)}{2}\)</span>都是一个计算过程， 而<span class="math notranslate nohighlight">\(A=B\)</span>是一个命题。</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+\begin{aligned}
+\sum_{i=1}^n i &amp;&amp;  \frac{n(n+1)}{2} &amp;&amp; A = B
+\end{aligned}
+\]</div>
+</div>
+<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBAzgrgtgfQF4gE4HsEBdMDsFjqpwwA2AhhABS4QBcEAcuVgJT1Mv0C8AUBAIi0AVNVoBqCAEZ2AeggAmXr1CRYiFBmx4EwAJaoQAYyykAnmI7M2VrnT4C9kWtwgAGCFgAWIWh5CkUCDQ8MhomDgI+PqGJuaWALTS7JK4ygDEIABu5KQhGuHaUQREJBTSbm68mTl56mFakdEGxqYWUpVAA" style="display:block; width:99%; max-width:1000px; height:calc(200px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe></section>
+</section>
+<section id="id7">
+<h2>类型&lt;-&gt;命题、实例&lt;-&gt;证明<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
 </section>
 <section id="abc">
 <h2>abc<a class="headerlink" href="#abc" title="Link to this heading">¶</a></h2>
-<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=C4Cwpg9gTmC2AEYCOB9AzgT1ggFAQXgC54AVDABzAEp4cA7eBYvGnEI+BgXkZuIR4NCPAEYYAUPCnwANmGDwQABiI8AAgFEkAOhgBjSdLkKQARlXw1y+HkNTjigEwWr5undnzFAZhchnOABmAK4MOBgA5BwsXAB88CFh7MTc8JHwNHFpUYIZHg4gACx+vjhaumCBMpxU+V4gAKx+xbB1JgBsfk0gHmAAHgCGeh1AA" style="display:block; width:99%; max-width:1000px; height:calc(300px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>机器定理证明的价值主要体现在三方面：一是<strong>绝对的可靠性</strong>——一旦证明通过内核检查，正确性几乎等同于逻辑公理本身的可信度；二是<strong>大规模数学的可维护性</strong>——像 <code class="docutils literal notranslate"><span class="pre">mathlib</span></code> 这样的形式化库已经积累了数十万条定理，可被组合复用；三是<strong>软硬件验证</strong>——CompCert 编译器、seL4 微内核、Intel 处理器算法等关键系统都依赖此类工具给出形式化正确性保证。近年来 Kevin Buzzard 等人发起的「把现代数学搬进 Lean」运动，以及 Terence Tao 用 Lean 形式化自己最新论文的实践，让机器定理证明从计算机科学的小众工具，逐渐成为数学研究本身的一部分。</p>
-<p>本指北将以 <strong>Lean 4</strong> 为载体，从「类型即命题、程序即证明」这一 Curry–Howard 视角出发，带你逐步上手机器定理证明。</p>
+<p>theorem eq_symm (A : Type) (n m : A) (h : n = m) : m = n := by
+let h0 := &#64;Eq.rec
+let h1 := &#64;h0 A
+let h2 := &#64;h1 n
+let h3 := &#64;h2 (fun (y’ : A)=&gt; fun (h : n = y’ ) =&gt; y’ = n )
+let h4 := &#64;h3 (Eq.refl n)
+let h5 := &#64;h4 m
+let h6 := &#64;h5 h
+exact h6</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+
+机器定理证明的价值主要体现在三方面：一是**绝对的可靠性**——一旦证明通过内核检查，正确性几乎等同于逻辑公理本身的可信度；二是**大规模数学的可维护性**——像 `mathlib` 这样的形式化库已经积累了数十万条定理，可被组合复用；三是**软硬件验证**——CompCert 编译器、seL4 微内核、Intel 处理器算法等关键系统都依赖此类工具给出形式化正确性保证。近年来 Kevin Buzzard 等人发起的「把现代数学搬进 Lean」运动，以及 Terence Tao 用 Lean 形式化自己最新论文的实践，让机器定理证明从计算机科学的小众工具，逐渐成为数学研究本身的一部分。
+
+本指北将以 **Lean 4** 为载体，从「类型即命题、程序即证明」这一 Curry–Howard 视角出发，带你逐步上手机器定理证明。
+
+</pre></div>
+</div>
 </section>
 </section>
 
@@ -434,11 +490,14 @@
 <li><a class="reference internal" href="#id2">基础知识与前置技能</a></li>
 <li><a class="reference internal" href="#id3">使用计算机来辅助计算</a><ul>
 <li><a class="reference internal" href="#id4">计算<span class="math notranslate nohighlight">\(1+2+3+...+100=?\)</span></a></li>
-<li><a class="reference internal" href="#n">计算<span class="math notranslate nohighlight">\(1+2+3+...+n=?\)</span></a></li>
+<li><a class="reference internal" href="#n">计算<span class="math notranslate nohighlight">\(0+1+2+...+n=?\)</span></a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id5">使用计算机来辅助证明</a></li>
-<li><a class="reference internal" href="#id6">类型&lt;-&gt;命题、实例&lt;-&gt;证明</a></li>
+<li><a class="reference internal" href="#id5">使用计算机来辅助证明</a><ul>
+<li><a class="reference internal" href="#id6">描述问题</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">类型&lt;-&gt;命题、实例&lt;-&gt;证明</a></li>
 <li><a class="reference internal" href="#abc">abc</a></li>
 </ul>
 </li>
