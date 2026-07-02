@@ -355,40 +355,47 @@
 </section>
 <section id="id5">
 <h2>使用计算机来辅助证明<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
-<p>那么下面我们就以求和公式为例演示如何“使用计算机来辅助证明”。那么我们是如何进行证明的呢？伟大的高斯告诉我们可以把这个序列颠倒着再加一遍。因此我们得到了证明：</p>
+<p>那么下面我们就以求和公式为例演示如何“使用计算机来辅助证明”。那么我们是如何进行证明的呢？一种方式是直接使用数学归法。</p>
+<p>命题： 对任意的自然数<span class="math notranslate nohighlight">\(n\)</span>，有 <span class="math notranslate nohighlight">\(0+1+2+...+n = \frac{n(n+1)}{2}\)</span> 成立</p>
+<p>证：</p>
+<p>对的自然数<span class="math notranslate nohighlight">\(n\)</span>使用数学归纳法</p>
+<ol class="arabic">
+<li><p>当 <span class="math notranslate nohighlight">\(n=0\)</span> 时有 <span class="math notranslate nohighlight">\( 0=\frac{0\times (0+1)}{2}\)</span> ，成立。</p></li>
+<li><p>假设<span class="math notranslate nohighlight">\(n=k\)</span>时结论成立，即 <span class="math notranslate nohighlight">\(0+1+2+...+k = \frac{k(k+1)}{2}\)</span> 成立。下证明 <span class="math notranslate nohighlight">\(n=k+1\)</span> 时有 <span class="math notranslate nohighlight">\(0+1+2+...+k+(k+1) = \frac{(k+1)(k+2)}{2}\)</span> 成立。直接计算有</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{aligned}
-&amp;\begin{aligned}
- &amp;0&amp;+&amp;1    &amp;+&amp;2    &amp;+&amp;...&amp;+&amp;(n-2)&amp;+&amp;(n-1)&amp;+&amp;n\\
-+&amp;n&amp;+&amp;(n-1)&amp;+&amp;(n-2)&amp;+&amp;...&amp;+&amp;2    &amp;+&amp;1    &amp;+&amp;0\\
-\end{aligned}
-= n \times (n + 1) \\
-\Rightarrow &amp;2\times (1+2+3+...+n) = n \times (n+1)\\
-\Rightarrow &amp;1+2+3+...+n = \frac{n(n+1)}{2}  \quad \square
-\end{aligned}
-\end{split}\]</div>
+    \begin{aligned}
+          &amp;0+1+2+...+k+(k+1) \\
+         =&amp;(0+1+2+...+k)+(k+1)&amp;加法结合律\\
+         =&amp;\frac{k(k+1)}{2}+(k+1)&amp;使用归纳假设\\
+         =&amp;\frac{k(k+1)+2(k+1)}{2}&amp;通分\\
+         =&amp;\frac{(k+2)(k+1)}{2}&amp;提取公因式\\
+         =&amp;\frac{(k+1)(k+2)}{2}&amp;乘法交换律\\
+    \end{aligned}
+    \end{split}\]</div>
 </div>
-<p>对于人来说，证明写成这个样子基本就够用了。换言之，在大部分场合下人们都认为这个证明过程证明了上述命题。
-但对于机器来说这里有好多模棱两可的地方，比如</p>
-<ol class="arabic simple">
-<li><p><span class="math notranslate nohighlight">\(n=1.5\)</span>行不行，<span class="math notranslate nohighlight">\(n=-1\)</span>行么？</p></li>
-<li><p><span class="math notranslate nohighlight">\(0+1+2+...+n = n+(n-1)+(n-2)+...+0\)</span> 怎么就成立了？(小朋友经常问这个问题)</p></li>
+<p>因此 <span class="math notranslate nohighlight">\(n=k+1\)</span> 时结论成立。</p>
+<p>由(1)(2)与归纳法知 <span class="math notranslate nohighlight">\(0+1+2+...+n = \frac{n(n+1)}{2}\)</span> 成立。<span class="math notranslate nohighlight">\(\square\)</span></p>
+</li>
 </ol>
-<p>面对这些问题，肯定有人要问这不是抬杠么。<span class="math notranslate nohighlight">\(n\)</span>当然是个自然数，加法交换律成立，<span class="math notranslate nohighlight">\(0+1+2+...+n\)</span>当然等于<span class="math notranslate nohighlight">\(n+(n-1)+(n-2)+...+0\)</span>。 但实际上这些被我们认知为理所当然的东西，是我们经年累月的训练的得到的直觉（毕竟小朋友对交换律的掌握并不熟练，就会觉得并不显然）。
-但很不幸的是计算机是一个非常傻的东西。不告诉它<span class="math notranslate nohighlight">\(n\)</span>是自然数，它会不知道<span class="math notranslate nohighlight">\(n\)</span>是什么。
-不说明 (2) 成立它就是不知道这是连续应用加法交换律的结果。
-换言之好多人觉得十分显然的东西，计算机它觉得完全不显然。将条件补充完整后得到命题</p>
+<p>那么下面我们就把这个证明过程翻译为计算机理解的方式。</p>
+<section id="id6">
+<h3>描述问题<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<p>为了方便观察与更加精确的表述问题，像上面使用自然语言去描述问题通常是不够的。因此将命题改写为如下形式。</p>
+<p>命题：</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[
     \forall n\in \mathbb{N},\sum_{i=1}^n i = \frac{n(n+1)}{2}
 \]</div>
 </div>
-<p>下面就可以正式的将证明翻译成计算机可以理解的形式。</p>
-<section id="id6">
-<h3>描述问题<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<blockquote>
+<div><p>注：这个过程一般被称为问题的形式化，其目的是在于消除表达的歧义。
+当然它也会带来副作用，在训练不足时会觉得这种表述非常别扭且难以理解。
+这是正常的，因为形式化表述本身对于熟悉自然语言表述的人来说并不是自然而然的。
+不如说任何表述或者规范本身都有其门槛和表达范式。</p>
+</div></blockquote>
 <p>观察这个命题可以发现它是由条件</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
@@ -403,7 +410,7 @@
 \sum_{i=1}^n i = \frac{n(n+1)}{2}
 \]</div>
 </div>
-<p>两部分组成，而结论由下面三个部分组成，其中<span class="math notranslate nohighlight">\(\sum_{i=1}^n i\)</span>、<span class="math notranslate nohighlight">\(\frac{n(n+1)}{2}\)</span>都是一个计算过程， 而<span class="math notranslate nohighlight">\(A=B\)</span>是一个命题。</p>
+<p>两部分组成。而结论由下面三个部分组成，</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[
@@ -412,10 +419,106 @@
 \end{aligned}
 \]</div>
 </div>
-<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBAzgrgtgfQF4gE4HsEBdMDsFjqpwwA2AhhABS4QBcEAcuVgJT1Mv0C8AUBAIi0AVNVoBqCAEZ2AeggAmXr1CRYiFBmx4EwAJaoQAYyykAnmI7M2VrnT4C9kWtwgAGCFgAWIWh5CkUCDQ8MhomDgI+PqGJuaWALTS7JK4ygDEIABu5KQhGuHaUQREJBTSbm68mTl56mFakdEGxqYWUpVAA" style="display:block; width:99%; max-width:1000px; height:calc(200px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe></section>
-</section>
+<p>其中<span class="math notranslate nohighlight">\(\sum_{i=1}^n i\)</span>、<span class="math notranslate nohighlight">\(\frac{n(n+1)}{2}\)</span>都是一个计算过程， 而<span class="math notranslate nohighlight">\(A=B\)</span>是一个命题。</p>
 <section id="id7">
-<h2>类型&lt;-&gt;命题、实例&lt;-&gt;证明<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h2>
+<h4>表述计算部分<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h4>
+<p>下面首先使用lean表达计算部分 <span class="math notranslate nohighlight">\(\frac{n (n + 1) }{ 2}\)</span></p>
+<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBAzgrgtgfQF4gE4HsEBdMDsFjqpwwA2AhhABS4QBcEAcuVgJT1Mv0C8AUBAIi0AVNVoBqCAEZ2AeggAmXrwDEIAG7lS0eMjSYcCfIWJlKUgAwWgA" style="display:block; width:99%; max-width:1000px; height:calc(200px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>其中<code class="docutils literal notranslate"><span class="pre">sum_zero_to_n_formula</span></code>表示了计算部分<span class="math notranslate nohighlight">\(\frac{n(n+1)}{2}\)</span>。它被定义成一个函数。lean中的一个函数由下面几个部分组成：</p>
+<ol class="arabic simple">
+<li><p>关键字<code class="docutils literal notranslate"><span class="pre">def</span></code>表示声明一个函数（计算部分）。这是lean语法的一部分呢</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(n</span> <span class="pre">:</span> <span class="pre">Nat)</span></code> 表示 <code class="docutils literal notranslate"><span class="pre">sum_zero_to_n_formula</span></code> 接受一个类型为<code class="docutils literal notranslate"><span class="pre">Nat</span></code>名称叫做<code class="docutils literal notranslate"><span class="pre">n</span></code>的参数。<code class="docutils literal notranslate"><span class="pre">Nat</span></code>类型在这里表示整数。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:</span></code>与<code class="docutils literal notranslate"><span class="pre">:=</span></code>中间的<code class="docutils literal notranslate"><span class="pre">Nat</span></code>表示函数<code class="docutils literal notranslate"><span class="pre">sum_zero_to_n_formula</span></code>的返回类型为一个整数类型。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:=</span></code>后面表示的是函数的实现。返回 <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">*</span> <span class="pre">(n</span> <span class="pre">+</span> <span class="pre">1)</span> <span class="pre">/</span> <span class="pre">2</span></code> 的计算结果。</p></li>
+</ol>
+<p>我们使用<code class="docutils literal notranslate"><span class="pre">#eval</span></code>这个方法来调用这个函数。在代码右侧的消息（Message）中可以看到它的输出 <code class="docutils literal notranslate"><span class="pre">5050</span></code> 代表着从<span class="math notranslate nohighlight">\(0\)</span>加到<span class="math notranslate nohighlight">\(100\)</span>的结果是<span class="math notranslate nohighlight">\(5050\)</span>。</p>
+<p>其次来表述另一个计算部分 <span class="math notranslate nohighlight">\(\sum_{i=1}^n i\)</span></p>
+<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBAzgrgtgfQF4gE4HsEBdMDsHACWqIAxlgDYCeEAFLhAFwQByAhlgJROsdMC8AKAgRCkBvwgAGCFgAWIBsJHSIykBSgg1K6PGRpMOBPiIly1OgwC0EAIzcA1BFyDBAYhAA3NhT2IUDGw8AmIySho7KSkgA" style="display:block; width:99%; max-width:1000px; height:calc(200px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>可以看到我们表述的是递归定义</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(n) =
+\begin{cases}
+0, &amp; n = 0 \\
+f(n-1) + n, &amp; n = 1,2,3,...
+\end{cases}
+\end{split}\]</div>
+</div>
+<p>其中 <span class="math notranslate nohighlight">\(f\)</span> 表示了函数 <span class="math notranslate nohighlight">\(sum\_zero\_to\_n\_directly\)</span> 。
+这是因为在lean中 <span class="math notranslate nohighlight">\(\sum_{i=1}^n i\)</span> 并非不可以写成直接表达，只是递归表达相对于直接表达在证明过程中会更加容易。
+换言之，lean的表达范式是推荐优先写成递归形式的。
+这一点与其它编程语言刚好相反，通常在其它语言中会使用专门的技巧尽可能的消除递归表达。而在lean中请尽量保留递归表达。</p>
+</section>
+<section id="id8">
+<h4>表述命题部分<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h4>
+<p>在表述这个命题之前，首先来看一些基础的命题与对应的lean表示</p>
+<p>命题:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+    1+1&amp;=2\\
+    1+1&amp;=3\\
+    \forall n\in \mathbb{N}, n &amp;+ 1 = 4\\
+    \exists n\in \mathbb{N}, n &amp;+ 1 = 4\\
+\end{aligned}
+\end{split}\]</div>
+</div>
+<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBADgTg9lA+nAdiRBDYxlsSAR0QBcB3OCALggAV4oqBeAKAggEYIBqDiRiAEzNmoSLAS50WHKnSESACxggQVWvSatePTvwDMw0dHqIUmbJPxEwcAK4w1dBJraAAIggo1AOQzEANB7cvPwALIbgxhIgAB4AlgDOxPGm5jJ48jb2jhqULGyAwESB1D7EEAGeOnwQIUA" style="display:block; width:99%; max-width:1000px; height:calc(300px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>对于前两个关于<span class="math notranslate nohighlight">\(1+1\)</span>的命题，显然我们知道命题： <span class="math notranslate nohighlight">\(1+1=2\)</span> 是真命题、命题： <span class="math notranslate nohighlight">\(1+1=3\)</span> 是假命题。在lean中<code class="docutils literal notranslate"><span class="pre">Prop</span></code>不会限制一个假命题的表达。即命题无论真假都可以被表述。</p>
+<p>对于后两个命题，分别表述了任意与存在。</p>
+<div class="table-wrapper colwidths-auto docutils container">
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>lean描述</p></th>
+<th class="head"><p>数学描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">∀</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">Nat</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\forall n\in \mathbb{N}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">∃</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">Nat</span></code></p></td>
+<td><p><span class="math notranslate nohighlight">\(\exists n\in \mathbb{N}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>最后我们来表达命题部分 <span class="math notranslate nohighlight">\(A = B\)</span>，其中 <span class="math notranslate nohighlight">\(A\)</span>，<span class="math notranslate nohighlight">\(B\)</span> 是之前表述过的计算部分。</p>
+<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBAzgrgtgfQF4gE4HsEBdMDsFjqpwwA2AhhABS4QBcEAcuVgJT1Mv0C8EAUBAi0AVNVoBqCAEZ2AeggAmPn1CRYiFBmx4EwAJaoQAYyykAnmI7M2VrnV4CIeyLV4AGCFgAWIWh5CkUCDQ8MhomDgI+PqGJuaWALTS7JK4yqoQAA4YmQggAI4I6hwACjk8joAAREK2WAA0IRrh2lG6BsamFq6NYVqR+ITEZJRpfADERj5GANZZOXmF6kA" style="display:block; width:99%; max-width:1000px; height:calc(250px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>与计算部分表达类似， 依旧定义了一个函数 <code class="docutils literal notranslate"><span class="pre">prop_eq_sum</span></code>。
+只是与之前的函数不同它的返回类型不再是<code class="docutils literal notranslate"><span class="pre">Nat</span></code>（自然数），而是一个新类型<code class="docutils literal notranslate"><span class="pre">Prop</span></code>(propositions，命题)。因此 <code class="docutils literal notranslate"><span class="pre">prop_eq_sum</span></code> 描述的正是命题：</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+    \forall n\in \mathbb{N},\sum_{i=1}^n i = \frac{n(n+1)}{2}
+\]</div>
+</div>
+<p>本身。</p>
+<p>命题:
+$<span class="math notranslate nohighlight">\(
+        1+1=2\\
+        1+1=3\\
+        \forall n\in \mathbb{N}, n + 1 = 4\\
+        \exists n\in \mathbb{N}, n + 1 = 4
+    \)</span>$</p>
+<p>伟大的高斯告诉我们可以把这个序列颠倒着再加一遍。因此我们得到了证明：</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{aligned}
+&amp;\begin{aligned}
+ &amp;0&amp;+&amp;1    &amp;+&amp;2    &amp;+&amp;...&amp;+&amp;(n-2)&amp;+&amp;(n-1)&amp;+&amp;n\\
++&amp;n&amp;+&amp;(n-1)&amp;+&amp;(n-2)&amp;+&amp;...&amp;+&amp;2    &amp;+&amp;1    &amp;+&amp;0\\
+\end{aligned}
+= n \times (n + 1) \\
+\Rightarrow &amp;2\times (1+2+3+...+n) = n \times (n+1)\\
+\Rightarrow &amp;1+2+3+...+n = \frac{n(n+1)}{2}  \quad \square
+\end{aligned}
+\end{split}\]</div>
+</div>
+</section>
+</section>
+</section>
+<section id="id9">
+<h2>类型&lt;-&gt;命题、实例&lt;-&gt;证明<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h2>
 </section>
 <section id="abc">
 <h2>abc<a class="headerlink" href="#abc" title="Link to this heading">¶</a></h2>
@@ -434,6 +537,24 @@ exact h6</p>
 
 本指北将以 **Lean 4** 为载体，从「类型即命题、程序即证明」这一 Curry–Howard 视角出发，带你逐步上手机器定理证明。
 
+对于人来说，证明写成这个样子基本就够用了。
+
+
+
+换言之，在大部分场合下人们都认为这个证明过程证明了上述命题。
+但对于机器来说这里有好多模棱两可的地方，比如
+
+1. $n=1.5$行不行，$n=-1$行么？
+2. $0+1+2+...+n = n+(n-1)+(n-2)+...+0$ 怎么就成立了？(小朋友经常问这个问题)
+
+面对这些问题，肯定有人要问这不是抬杠么。$n$当然是个自然数，加法交换律成立，$0+1+2+...+n$当然等于$n+(n-1)+(n-2)+...+0$。 但实际上这些被我们认知为理所当然的东西，是我们经年累月的训练的得到的直觉（毕竟小朋友对交换律的掌握并不熟练，就会觉得并不显然）。
+但很不幸的是计算机是一个非常傻的东西。不告诉它$n$是自然数，它会不知道$n$是什么。
+不说明 (2) 成立它就是不知道这是连续应用加法交换律的结果。
+换言之好多人觉得十分显然的东西，计算机它觉得完全不显然。因此将条件补充完整后得到命题
+
+
+
+下面就可以正式的将证明翻译成计算机可以理解的形式。
 </pre></div>
 </div>
 </section>
@@ -494,10 +615,14 @@ exact h6</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#id5">使用计算机来辅助证明</a><ul>
-<li><a class="reference internal" href="#id6">描述问题</a></li>
+<li><a class="reference internal" href="#id6">描述问题</a><ul>
+<li><a class="reference internal" href="#id7">表述计算部分</a></li>
+<li><a class="reference internal" href="#id8">表述命题部分</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id7">类型&lt;-&gt;命题、实例&lt;-&gt;证明</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9">类型&lt;-&gt;命题、实例&lt;-&gt;证明</a></li>
 <li><a class="reference internal" href="#abc">abc</a></li>
 </ul>
 </li>
