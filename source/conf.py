@@ -109,15 +109,16 @@ class LeanPlaygroundDirective(Directive):
         )
 
         html = (
-            f'<iframe src="{src}" style="{style}" '
-            f'loading="lazy" title="{title}"></iframe>'
+            f'<iframe src="{src}" class="lean-playground" tabindex="-1" '
+            f'style="{style}" loading="lazy" title="{title}"></iframe>'
         )
         return [nodes.raw("", html, format="html")]
 
 
 def setup(app):
     app.add_directive("lean-playground", LeanPlaygroundDirective)
-    return {"version": "0.3", "parallel_read_safe": True}
+    app.add_js_file("lean-playground.js")
+    return {"version": "0.4", "parallel_read_safe": True}
 
 
 # -- Project information -----------------------------------------------------
