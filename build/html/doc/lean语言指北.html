@@ -9,6 +9,7 @@
         <title>机器定理证明 - shizhilvren的一些记录</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
     
     
@@ -488,32 +489,22 @@ f(n-1) + n, &amp; n = 1,2,3,...
 它与之前的函数最大的不同它的返回类型不再是<code class="docutils literal notranslate"><span class="pre">Nat</span></code>（自然数），而是一个新类型<code class="docutils literal notranslate"><span class="pre">Prop</span></code>(propositions，命题)。
 而实例 <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">2</span></code> 、<code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">3</span></code> 、<code class="docutils literal notranslate"><span class="pre">∀</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">Nat,</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">4</span></code> 和 <code class="docutils literal notranslate"><span class="pre">∃</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">Nat</span> <span class="pre">,</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">4</span></code> 都是类型<code class="docutils literal notranslate"><span class="pre">Prop</span></code> 的实例。就如同实例 <code class="docutils literal notranslate"><span class="pre">1</span></code> 、<code class="docutils literal notranslate"><span class="pre">2</span></code> 和 <code class="docutils literal notranslate"><span class="pre">3</span></code> 都是类型 <code class="docutils literal notranslate"><span class="pre">Nat</span></code> 的实例一样。</p>
 <blockquote>
-<div><p>实例与类型：为了方便我们使用下面的记法表达实例与类型的关系。</p>
+<div><p>实例与类型</p>
+<p>为了方便我们使用下面的记法表达实例与类型的关系。</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
-\[\begin{split}
-&gt;    1 : Nat\\
-&gt;    1 + 1 = 3 : Prop\\
-&gt;    ∃ n : Nat , n + 1 = 4 : Prop
-&gt; \end{split}\]</div>
+\[\begin{split}1 : Nat\\1 + 1 = 3 : Prop\\∃ n : Nat , n + 1 = 4 : Prop\end{split}\]</div>
 </div>
 <p>其中 <code class="docutils literal notranslate"><span class="pre">:</span></code> 左边表示实例，右边表示类型。
 分别读作</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
-\[\begin{split}
-&gt;    1 是Nat的实例\\
-&gt;    1+1=3 是Prop的实例\\
-&gt;    存在n是Nat的实例，使得n+1=4 是Prop 的实例
-&gt;\end{split}\]</div>
+\[\begin{split}&gt;1 是Nat的实例\\1+1=3 是Prop的实例\\存在n是Nat的实例，使得n+1=4 是Prop 的实例\end{split}\]</div>
 </div>
 <p>其中前两个比较简单，第三个则相对复杂，因为它涉及了嵌套关系</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
-\[\begin{split}
-&gt;    n : Nat\\
-&gt;    ∃ _ , n + 1 = 4 : Prop
-&gt;\end{split}\]</div>
+\[\begin{split}n : Nat\\∃ _ , n + 1 = 4 : Prop\end{split}\]</div>
 </div>
 <p>将 <code class="docutils literal notranslate"><span class="pre">∃</span> <span class="pre">n</span> <span class="pre">:</span> <span class="pre">Nat</span> <span class="pre">,</span> <span class="pre">n</span> <span class="pre">+</span> <span class="pre">1</span> <span class="pre">=</span> <span class="pre">4</span> </code>这个东西视为一个整体才是<code class="docutils literal notranslate"><span class="pre">Prop</span></code>的实例。
 也就是说<code class="docutils literal notranslate"><span class="pre">存在n是Nat的实例，使得n+1=4</span></code>作为一个整体才是<code class="docutils literal notranslate"><span class="pre">Prop</span></code>的实例。
@@ -543,7 +534,7 @@ f(n-1) + n, &amp; n = 1,2,3,...
 </table>
 </div>
 <blockquote>
-<div><p>注1：严格来说这个表述不够严谨，因为<code class="docutils literal notranslate"><span class="pre">Nat</span></code>类型并非一个集合，<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">:</span> <span class="pre">Nat</span></code> 表述的是 <span class="math notranslate nohighlight">\(n\)</span> 是 <code class="docutils literal notranslate"><span class="pre">Nat</span></code> 的一个实例<span class="math notranslate nohighlight">\(n\)</span>。
+<div><p>注：严格来说这个表述不够严谨，因为<code class="docutils literal notranslate"><span class="pre">Nat</span></code>类型并非一个集合，<code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">:</span> <span class="pre">Nat</span></code> 表述的是 <span class="math notranslate nohighlight">\(n\)</span> 是 <code class="docutils literal notranslate"><span class="pre">Nat</span></code> 的一个实例<span class="math notranslate nohighlight">\(n\)</span>。
 <code class="docutils literal notranslate"><span class="pre">n</span> <span class="pre">∈</span> <span class="pre">(setOf</span> <span class="pre">fun</span> <span class="pre">_</span> <span class="pre">:</span> <span class="pre">Nat</span> <span class="pre">=&gt;</span> <span class="pre">true)</span></code> 表达的才是 <span class="math notranslate nohighlight">\(n\)</span> 属于的由<code class="docutils literal notranslate"><span class="pre">Nat</span></code>所有元素构成的集合。
 这两者是完全等价的，因此本文都选用更易于理解的一种。</p>
 </div></blockquote>
@@ -652,7 +643,8 @@ f(n-1) + n, &amp; n = 1,2,3,...
 <h4>如何应用定理<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h4>
 <p>在开始正式证明更复杂的东西之前，首先要学会如何应用已经存在的定理。
 毕竟我们没有必要手搓所有的定理，而且这些定理很多并不好证明。稍有不慎就会遇上大量未曾理解或者不曾思考的问题。给我们的学习信心带来大量的打击。为了暂时回避这个事情。我们就要站在巨人肩膀上更进一步。为此首先来看一点简单的命题与证明。</p>
-<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBADgTg9lA+gOwIYBdEGM4FteICMEAFMhAFwQByGAlKbpTfcwArxSUC8AUBBHIBqCE26iII5L16hIsBCgzY8BAEylyTKrXQMqHBD36DJE8UykyAxFgAWILAGsW6AHSpgwFfhnoHcDAgTApgRJrMugwk2q760JxKmDj44Vo8EABGAJ4mALR5EADmcKgANgmKaMmqaaImMADuEADaCkjVPgSEALr5hSXlpiJiElYCZSDoECAAjsRUwuZjphTiuh5eXaa4JiAAHqhY03OEfgFBIfBhGiRcOqwks5GsVO1JXYgaXM9rWbkCArFUoVd6dFLqaAQWYNZptRLg2pqPqAgYgqEiZ7iZ4iKCw1obTzeCE9IA" class="lean-playground" tabindex="-1" style="display:block; width:99%; max-width:1000px; height:calc(500px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>伟大的高斯告诉我们可以把这个序列颠倒着再加一遍。因此我们得到了证明：</p>
+<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBADgTg9lA+gOwIYBdEGM4FteICMEAFMhAFwQByGAlKbpTfcwArxSUC8AUBBHIBqCE26iII5L16hIsBCgzY8BAEylyTKrXQMqHBD36DJE8UykyAxFgAWILAGsW6AHSpgwFfhnoHcDAgTApgKHCYYACWyFEAznaazLoMJNqu+tCcSpg4+ESm2uIARgCefgFBIfBhxGTJrGkNeswKSGi5qgVaPBBlJgC0AxAA5nCoADZZih0+BMRaJjAA7hAA2m05c0QAuoPDY5OmImISVgITIOgQIACOxFTC5memFOK6Hl5zhSYgAB6oLDXO6ECogQLBaZhDQkLg6Rq3ZqZTazPLqaAQRFvPrlARDUbjKYo5RoxAaLi3JarDbZVFdNR7PEHQkYkSI8SIkRQKnrD6ebxonZAA" class="lean-playground" tabindex="-1" style="display:block; width:99%; max-width:1000px; height:calc(470px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>这里我们写了两个返回类型时命题的函数 <code class="docutils literal notranslate"><span class="pre">prop_nat_comm_1</span></code> 与 <code class="docutils literal notranslate"><span class="pre">prop_nat_comm_1</span></code> 。之后我们写了两个定理分别证明了这两个命题。如果实在vscode 中</p>
+<p>伟大的高斯告诉我们可以把这个序列颠倒着再加一遍。因此我们得到了证明：</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[\begin{split}

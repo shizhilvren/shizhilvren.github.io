@@ -286,36 +286,26 @@ def prop_exists_n_add_one_eq_four : Prop :=
 它与之前的函数最大的不同它的返回类型不再是```Nat```（自然数），而是一个新类型```Prop```(propositions，命题)。
 而实例 ```1 + 1 = 2``` 、```1 + 1 = 3``` 、```∀ n : Nat, n + 1 = 4``` 和 ```∃ n : Nat , n + 1 = 4``` 都是类型```Prop``` 的实例。就如同实例 ```1``` 、```2``` 和 ```3``` 都是类型 ```Nat``` 的实例一样。
 
-> 实例与类型：为了方便我们使用下面的记法表达实例与类型的关系。
+> 实例与类型
 >
-> $$
->    1 : Nat\\
->    1 + 1 = 3 : Prop\\
->    ∃ n : Nat , n + 1 = 4 : Prop
-> $$
+> 为了方便我们使用下面的记法表达实例与类型的关系。
+>
+> $$1 : Nat\\1 + 1 = 3 : Prop\\∃ n : Nat , n + 1 = 4 : Prop$$
 >
 >其中 ```:``` 左边表示实例，右边表示类型。
 >分别读作
 >
->$$
->    1 是Nat的实例\\
->    1+1=3 是Prop的实例\\
->    存在n是Nat的实例，使得n+1=4 是Prop 的实例
->$$
+>$$>1 是Nat的实例\\1+1=3 是Prop的实例\\存在n是Nat的实例，使得n+1=4 是Prop 的实例$$
 >
 >其中前两个比较简单，第三个则相对复杂，因为它涉及了嵌套关系
 >
->$$
->    n : Nat\\
->    ∃ _ , n + 1 = 4 : Prop
->$$
+>$$n : Nat\\∃ _ , n + 1 = 4 : Prop$$
 >
 >将 ```∃ n : Nat , n + 1 = 4 ```这个东西视为一个整体才是```Prop```的实例。
 >也就是说```存在n是Nat的实例，使得n+1=4```作为一个整体才是```Prop```的实例。
 >单独拿出任何一部分都不是这个式子中期望表达的Prop的实例。
+>
 >>注：实际上 ```Prop``` 这个类型并没有什么特殊的意义，它和众多类型如 ```Nat``` 没有区别。只是使用lean语言的人觉得这个东西可以被证明，因此单独拿出来讨论。
-
-
 
 对于前两个关于$1+1$的命题，显然我们知道命题： $1+1=2$ 是真命题。命题： $1+1=3$ 是假命题。
 在lean中```Prop```不会限制一个假命题的表达。即命题无论真假都可以被表述。当然假命题是证不出来的。
@@ -327,7 +317,7 @@ def prop_exists_n_add_one_eq_four : Prop :=
 |```∀ n : Nat```|$\forall n\in \mathbb{N}$|
 |```∃ n : Nat```|$\exists n\in \mathbb{N}$|
 
-> 注1：严格来说这个表述不够严谨，因为```Nat```类型并非一个集合，```n : Nat``` 表述的是 $n$ 是 ```Nat``` 的一个实例$n$。
+> 注：严格来说这个表述不够严谨，因为```Nat```类型并非一个集合，```n : Nat``` 表述的是 $n$ 是 ```Nat``` 的一个实例$n$。
 ```n ∈ (setOf fun _ : Nat => true)``` 表达的才是 $n$ 属于的由```Nat```所有元素构成的集合。
 这两者是完全等价的，因此本文都选用更易于理解的一种。
 
@@ -405,6 +395,7 @@ def prop_eq_sum : Prop :=
 $$
     \forall n\in \mathbb{N},\sum_{i=1}^n i = \frac{n(n+1)}{2}
 $$
+
 本身。
 
 至此我们在lean中完成了命题的命题的表述。一般来说，在lean中，请将一个定义或实现拆解为尽可能小的组成部分。
@@ -466,7 +457,7 @@ theorem proof_eq_sum : prop_eq_sum := by
 毕竟我们没有必要手搓所有的定理，而且这些定理很多并不好证明。稍有不慎就会遇上大量未曾理解或者不曾思考的问题。给我们的学习信心带来大量的打击。为了暂时回避这个事情。我们就要站在巨人肩膀上更进一步。为此首先来看一点简单的命题与证明。
 
 ```{lean-playground}
-:height: 500px
+:height: 470px
 def prop_nat_comm_1 (n : Nat) (m : Nat) : Prop :=
   n + m = m + n
 
@@ -474,6 +465,8 @@ def prop_nat_comm_2 (n m : Nat) : Prop :=
   n + m = m + n
 
 #check Nat.add_comm
+
+theorem prof_not_finish (n : Nat) (m : Nat) : prop_nat_comm_1 n m := by
 
 theorem prof_1 (n : Nat) (m : Nat) : prop_nat_comm_1 n m := by
   -- goal prop_nat_comm_1 n m
@@ -488,6 +481,14 @@ theorem prof_2 (p : Nat) (q : Nat) : prop_nat_comm_2 p q := by
   -- goal p + q = q + p
   rw [Nat.add_comm]
 ```
+
+这里我们写了两个返回类型时命题的函数 ```prop_nat_comm_1``` 与 ```prop_nat_comm_1``` 。之后我们写了两个定理分别证明了这两个命题。在详细阅读证明之前，我们可以观察一下 ```prof_not_finish``` 这个证明```by``` 后面有红色波浪线。当鼠标放上去的时候就可以看到下面这一段输出：
+```
+unsolved goals
+n m : Nat
+⊢ prop_nat_comm_1 n mLean 4
+```
+这段输出表示lean在提示我们证明没有完成，
 
 伟大的高斯告诉我们可以把这个序列颠倒着再加一遍。因此我们得到了证明：
 
