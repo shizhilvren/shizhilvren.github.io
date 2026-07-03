@@ -133,7 +133,7 @@ author = 'shizhilvren@foxmail.com'
 
 
 extensions = [
-    'myst_nb',
+    'myst_parser',
     'sphinx.ext.mathjax',
 ]
 
@@ -144,9 +144,9 @@ myst_enable_extensions = [
 
 source_suffix = {
     '.rst': 'restructuredtext',
-    '.txt': 'myst-nb',
-    '.md': 'myst-nb',
-    '.ipynb': 'myst-nb',
+    '.txt': 'markdown',
+    '.md': 'markdown',
+    '.ipynb': 'markdown',
 }
 
 templates_path = ['_templates']

@@ -1,24 +1,23 @@
 <!doctype html>
 <html class="no-js" lang="zh-CN" data-content_root="../">
-  <head><meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="索引" href="../genindex.html" /><link rel="search" title="搜索" href="../search.html" /><link rel="prev" title="shizhilvren documentation" href="../index.html" />
+<link rel="index" title="索引" href="../genindex.html"><link rel="search" title="搜索" href="../search.html"><link rel="prev" title="shizhilvren documentation" href="../index.html">
 
-    <!-- Generated with Sphinx 8.0.2 and Furo 2024.08.06 -->
+    <!-- Generated with Sphinx 9.1.0 and Furo 2025.12.19 -->
         <title>机器定理证明 - shizhilvren的一些记录</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=354aac6f" />
-    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=302659d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/furo-extensions.css?v=8dab3a3b" />
     
     
 
 
 <style>
   body {
-    --color-code-background: #f8f8f8;
-  --color-code-foreground: black;
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
   
   }
   @media not print {
@@ -145,14 +144,10 @@
   </symbol>
 </svg>
 
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation">
-<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc">
-<label class="overlay sidebar-overlay" for="__navigation">
-  <div class="visually-hidden">Hide navigation sidebar</div>
-</label>
-<label class="overlay toc-overlay" for="__toc">
-  <div class="visually-hidden">Hide table of contents sidebar</div>
-</label>
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
 
 <a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
 
@@ -162,8 +157,7 @@
   <header class="mobile-header">
     <div class="header-left">
       <label class="nav-overlay-icon" for="__navigation">
-        <div class="visually-hidden">Toggle site navigation sidebar</div>
-        <i class="icon"><svg><use href="#svg-menu"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
       </label>
     </div>
     <div class="header-center">
@@ -171,8 +165,7 @@
     </div>
     <div class="header-right">
       <div class="theme-toggle-container theme-toggle-header">
-        <button class="theme-toggle">
-          <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
           <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
           <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
           <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -180,8 +173,7 @@
         </button>
       </div>
       <label class="toc-overlay-icon toc-header-icon" for="__toc">
-        <div class="visually-hidden">Toggle table of contents sidebar</div>
-        <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
       </label>
     </div>
   </header>
@@ -189,7 +181,6 @@
     <div class="sidebar-container">
       
       <div class="sidebar-sticky"><a class="sidebar-brand" href="../index.html">
-  
   
   <span class="sidebar-brand-text">shizhilvren的一些记录</span>
   
@@ -228,8 +219,7 @@
   </a>
 </div>
 <div class="theme-toggle-container theme-toggle-content">
-            <button class="theme-toggle">
-              <div class="visually-hidden">Toggle Light / Dark / Auto color theme</div>
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
               <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
               <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
               <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
@@ -237,13 +227,12 @@
             </button>
           </div>
           <label class="toc-overlay-icon toc-content-icon" for="__toc">
-            <div class="visually-hidden">Toggle table of contents sidebar</div>
-            <i class="icon"><svg><use href="#svg-toc"></use></svg></i>
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
           </label>
         </div>
         <article role="main" id="furo-main-content">
           <section class="tex2jax_ignore mathjax_ignore" id="id1">
-<h1>机器定理证明<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h1>
+<h1>机器定理证明<a class="headerlink" href="#id1" title="链接到此标题。">¶</a></h1>
 <p><strong>机器定理证明（Automated / Interactive Theorem Proving）</strong> 或者说“使用计算机来辅助证明定理”，是指借助计算机来书写、检验乃至自动发现（并证明）数学证明的一类技术。
 它的核心思想与“使用计算机来辅助计算”（各种编程语言如C/C++、Rust）相似，都是将自然语言描述的计算/证明过程转化为一种变成语言。
 使得我们可以借助计算机的运算能力与准确性来高效准确的完成计算和证明。</p>
@@ -254,7 +243,7 @@
 </ul>
 <p>而本文主要以<a class="reference external" href="https://leanprover-community.github.io/learn.html">lean</a>为引子来介绍交互式定理证明，其目标式可以使用lean进行简单的证明书写。</p>
 <section id="id2">
-<h2>基础知识与前置技能<a class="headerlink" href="#id2" title="Link to this heading">¶</a></h2>
+<h2>基础知识与前置技能<a class="headerlink" href="#id2" title="链接到此标题。">¶</a></h2>
 <p>阅读本文需要掌握一些基本的知识：</p>
 <ol class="arabic simple">
 <li><p>能够阅读C/C++的基本语法</p></li>
@@ -264,10 +253,10 @@
 <p>上述要求应该不难满足。 另外<a class="reference external" href="https://live.lean-lang.org/">lean在线网站</a>可以在免去复杂的安装过程的同时体验一下lean的能力。是一个非常方便的工具。</p>
 </section>
 <section id="id3">
-<h2>使用计算机来辅助计算<a class="headerlink" href="#id3" title="Link to this heading">¶</a></h2>
+<h2>使用计算机来辅助计算<a class="headerlink" href="#id3" title="链接到此标题。">¶</a></h2>
 <p>在开始使用lean证明各种东西之前，我们先看一个“使用计算机来辅助计算”的例子。 这有助于理解“使用计算机来辅助证明定理”。</p>
 <section id="id4">
-<h3>计算<span class="math notranslate nohighlight">\(1+2+3+...+100=?\)</span><a class="headerlink" href="#id4" title="Link to this heading">¶</a></h3>
+<h3>计算<span class="math notranslate nohighlight">\(1+2+3+...+100=?\)</span><a class="headerlink" href="#id4" title="链接到此标题。">¶</a></h3>
 <p>如果我们想计算</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
@@ -279,14 +268,14 @@
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
+\begin{aligned}
 &amp;0+1+2+3+...+100 \\
 =&amp;(0+1)+2+3+...+100 \\
 =&amp;(1+2)+3+...+100 \\
 =&amp;(3+3)+...+100 \\
 =&amp;... \\
 =&amp;5050
-\end{align}
+\end{aligned}
 \end{split}\]</div>
 </div>
 <p>这个计算过程非常的直观，就是从左到右一个个数加过去。朴实而原始。那么如果我们考虑“使用计算机来辅助计算”，我们就会得到如下程序</p>
@@ -303,7 +292,7 @@
 但这完成了一个非常了不起的过程，我们第一次进行了“使用计算机来辅助计算”，计算机代替我们完成了繁琐的计算过程。</p>
 </section>
 <section id="n">
-<h3>计算<span class="math notranslate nohighlight">\(0+1+2+...+n=?\)</span><a class="headerlink" href="#n" title="Link to this heading">¶</a></h3>
+<h3>计算<span class="math notranslate nohighlight">\(0+1+2+...+n=?\)</span><a class="headerlink" href="#n" title="链接到此标题。">¶</a></h3>
 <p>更进一步如果将问题改为</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
@@ -313,12 +302,12 @@
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\begin{align}
+\begin{aligned}
 &amp;0+1+2+...+n \\
 =&amp;1+2+...+n \\
 =&amp;3+...+n \\
 =&amp;... \\
-\end{align}
+\end{aligned}
 \end{split}\]</div>
 </div>
 <p>会发现我并不知道该加到多少停止，因为这个问题里并没有给出<span class="math notranslate nohighlight">\(n\)</span>的具体数值。因此只能说</p>
@@ -355,7 +344,7 @@
 </section>
 </section>
 <section id="id5">
-<h2>使用计算机来辅助证明<a class="headerlink" href="#id5" title="Link to this heading">¶</a></h2>
+<h2>使用计算机来辅助证明<a class="headerlink" href="#id5" title="链接到此标题。">¶</a></h2>
 <p>那么下面我们就以求和公式为例演示如何“使用计算机来辅助证明”。那么我们是如何进行证明的呢？一种方式是直接使用数学归法。</p>
 <p>命题： 对任意的自然数<span class="math notranslate nohighlight">\(n\)</span>，有 <span class="math notranslate nohighlight">\(0+1+2+...+n = \frac{n(n+1)}{2}\)</span> 成立</p>
 <p>证：</p>
@@ -382,7 +371,7 @@
 </ol>
 <p>那么下面我们就把这个证明过程翻译为计算机理解的方式。</p>
 <section id="id6">
-<h3>描述问题<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h3>
+<h3>描述问题<a class="headerlink" href="#id6" title="链接到此标题。">¶</a></h3>
 <p>为了方便观察与更加精确的表述问题，像上面使用自然语言去描述问题通常是不够的。因此将命题改写为如下形式。</p>
 <p>命题：</p>
 <div class="math-wrapper docutils container">
@@ -443,7 +432,7 @@
 \]</div>
 </div>
 <section id="id7">
-<h4>表述计算部分<a class="headerlink" href="#id7" title="Link to this heading">¶</a></h4>
+<h4>表述计算部分<a class="headerlink" href="#id7" title="链接到此标题。">¶</a></h4>
 <p>下面首先使用lean表达计算部分 <span class="math notranslate nohighlight">\(\frac{n (n + 1) }{ 2}\)</span></p>
 <iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBAzgrgtgfQF4gE4HsEBdMDsFjqpwwA2AhhABS4QBcEAcuVgJT1Mv0C8AUBAIi0AVNVoBqCAEZ2AeggAmXrwDEIAG7lS0eMjSYcCfIWJlKUgAwWgA" class="lean-playground" tabindex="-1" style="display:block; width:99%; max-width:1000px; height:calc(200px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>其中<code class="docutils literal notranslate"><span class="pre">sum_zero_to_n_formula</span></code>表示了计算部分<span class="math notranslate nohighlight">\(\frac{n(n+1)}{2}\)</span>。它被定义成一个函数。lean中的一个函数由下面几个部分组成：</p>
 <ol class="arabic simple">
@@ -471,7 +460,7 @@ f(n-1) + n, &amp; n = 1,2,3,...
 这一点与其它编程语言刚好相反，通常在其它语言中会使用专门的技巧尽可能的消除递归表达。而在lean中请尽量保留递归表达。</p>
 </section>
 <section id="id8">
-<h4>表述命题部分<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h4>
+<h4>表述命题部分<a class="headerlink" href="#id8" title="链接到此标题。">¶</a></h4>
 <p>在表述这个复杂命题之前，首先来看一些基础的命题与对应的lean表示</p>
 <p>命题:</p>
 <div class="math-wrapper docutils container">
@@ -499,7 +488,7 @@ f(n-1) + n, &amp; n = 1,2,3,...
 分别读作</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
-\[\begin{split}&gt;1 是Nat的实例\\1+1=3 是Prop的实例\\存在n是Nat的实例，使得n+1=4 是Prop 的实例\end{split}\]</div>
+\[\begin{split}1 是Nat的实例\\1+1=3 是Prop的实例\\存在n是Nat的实例，使得n+1=4 是Prop 的实例\end{split}\]</div>
 </div>
 <p>其中前两个比较简单，第三个则相对复杂，因为它涉及了嵌套关系</p>
 <div class="math-wrapper docutils container">
@@ -609,11 +598,11 @@ f(n-1) + n, &amp; n = 1,2,3,...
 </section>
 </section>
 <section id="id9">
-<h3>证明命题<a class="headerlink" href="#id9" title="Link to this heading">¶</a></h3>
+<h3>证明命题<a class="headerlink" href="#id9" title="链接到此标题。">¶</a></h3>
 <p>证明的书写总有固定的格式（无论会不会证，先写个证字把条件抄一遍再说）lean也不会例外。首先给出证明的基本样式：</p>
 <iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBAzgrgtgfQF4gE4HsEBdMDsFjqpwwA2AhhABS4QBcEAcuVgJT1Mv0C80RqATwBQoSLEQoM2PAmABLVCADGWUgOq0GzNh208+qQUJHgIABwxmEIAI4JxHAAqWeQiBEAARBE2csAGmh4ZDRMHAR8eUUVNW8IXnFgqTD8QmIySlxjLAALECIQOHMMdDBrOwcGC3QrW3t4fQAjYXcofgEgA" class="lean-playground" tabindex="-1" style="display:block; width:99%; max-width:1000px; height:calc(250px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>这里出现了一些之前没有的关键字 <code class="docutils literal notranslate"><span class="pre">sorry</span></code> 、 <code class="docutils literal notranslate"><span class="pre">by</span></code> 和 <code class="docutils literal notranslate"><span class="pre">theorem</span></code> 。</p>
 <section id="theorem">
-<h4><code class="docutils literal notranslate"><span class="pre">theorem</span></code> 关键字<a class="headerlink" href="#theorem" title="Link to this heading">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">theorem</span></code> 关键字<a class="headerlink" href="#theorem" title="链接到此标题。">¶</a></h4>
 <p>表示这是一个定理，它后面会接着下面几个部分，</p>
 <ol class="arabic simple">
 <li><p>定理名称：在这个例子中定理的名称叫 <code class="docutils literal notranslate"><span class="pre">proof_eq_sum</span></code></p></li>
@@ -625,7 +614,7 @@ f(n-1) + n, &amp; n = 1,2,3,...
 </ol>
 </section>
 <section id="by">
-<h4><code class="docutils literal notranslate"><span class="pre">by</span></code> 关键字<a class="headerlink" href="#by" title="Link to this heading">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">by</span></code> 关键字<a class="headerlink" href="#by" title="链接到此标题。">¶</a></h4>
 <p>可以简单理解成证明的一种固定格式。对于刚开始理解可以不去深究它。</p>
 <blockquote>
 <div><p><a class="reference external" href="https://lean-lang.org/theorem_proving_in_lean4/Tactics/#Theorem-Proving-in-Lean-4--Tactics">策略模式（Tactic Mod）</a>：<code class="docutils literal notranslate"><span class="pre">by</span></code> 关键字实际上是策略模式的开关。
@@ -635,15 +624,21 @@ f(n-1) + n, &amp; n = 1,2,3,...
 </div></blockquote>
 </section>
 <section id="sorry">
-<h4><code class="docutils literal notranslate"><span class="pre">sorry</span></code> 关键字<a class="headerlink" href="#sorry" title="Link to this heading">¶</a></h4>
+<h4><code class="docutils literal notranslate"><span class="pre">sorry</span></code> 关键字<a class="headerlink" href="#sorry" title="链接到此标题。">¶</a></h4>
 <p>它的用法就是在函数不知道怎么实现，或者证明不知道怎么证的时候用来占位置的符号。
 在本例中函数里使用的 <code class="docutils literal notranslate"><span class="pre">sorry</span></code> 是为了节约篇章而省略重复的一种手段。<code class="docutils literal notranslate"><span class="pre">theorem</span></code> 中出现的 <code class="docutils literal notranslate"><span class="pre">sorry</span></code> 则是暂时不知道如何证明的占位符。</p>
 </section>
 <section id="id10">
-<h4>如何应用定理<a class="headerlink" href="#id10" title="Link to this heading">¶</a></h4>
+<h4>如何应用定理<a class="headerlink" href="#id10" title="链接到此标题。">¶</a></h4>
 <p>在开始正式证明更复杂的东西之前，首先要学会如何应用已经存在的定理。
 毕竟我们没有必要手搓所有的定理，而且这些定理很多并不好证明。稍有不慎就会遇上大量未曾理解或者不曾思考的问题。给我们的学习信心带来大量的打击。为了暂时回避这个事情。我们就要站在巨人肩膀上更进一步。为此首先来看一点简单的命题与证明。</p>
-<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBADgTg9lA+gOwIYBdEGM4FteICMEAFMhAFwQByGAlKbpTfcwArxSUC8AUBBHIBqCE26iII5L16hIsBCgzY8BAEylyTKrXQMqHBD36DJE8UykyAxFgAWILAGsW6AHSpgwFfhnoHcDAgTApgKHCYYACWyFEAznaazLoMJNqu+tCcSpg4+ESm2uIARgCefgFBIfBhxGTJrGkNeswKSGi5qgVaPBBlJgC0AxAA5nCoADZZih0+BMRaJjAA7hAA2m05c0QAuoPDY5OmImISVgITIOgQIACOxFTC5memFOK6Hl5zhSYgAB6oLDXO6ECogQLBaZhDQkLg6Rq3ZqZTazPLqaAQRFvPrlARDUbjKYo5RoxAaLi3JarDbZVFdNR7PEHQkYkSI8SIkRQKnrD6ebxonZAA" class="lean-playground" tabindex="-1" style="display:block; width:99%; max-width:1000px; height:calc(470px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>这里我们写了两个返回类型时命题的函数 <code class="docutils literal notranslate"><span class="pre">prop_nat_comm_1</span></code> 与 <code class="docutils literal notranslate"><span class="pre">prop_nat_comm_1</span></code> 。之后我们写了两个定理分别证明了这两个命题。如果实在vscode 中</p>
+<iframe src="https://live.lean-lang.org/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=CYUwZgBADgTg9lA+gOwIYBdEGM4FteICMEAFMhAFwQByGAlKbpTfcwArxSUC8AUBBHIBqCE26iII5L16hIsBCgzY8BAEylyTKrXQMqHBD36DJE8UykyAxFgAWILAGsW6AHSpgwFfhnoHcDAgTApgKHCYYACWyFEAznaazLoMJNqu+tCcSpg4+ESm2uIARgCefgFBIfBhxGTJrGkNeswKSGi5qgVaPBBlJgC0AxAA5nCoADZZih0+BMRaJjAA7hAA2m05c0QAuoPDY5OmImISVgITIOgQIACOxFTC5memFOK6Hl5zhSYgAB6oLDXO6ECogQLBaZhDQkLg6Rq3ZqZTazPLqaAQRFvPrlARDUbjKYo5RoxAaLi3JarDbZVFdNR7PEHQkYkSI8SIkRQKnrD6ebxonZAA" class="lean-playground" tabindex="-1" style="display:block; width:99%; max-width:1000px; height:calc(470px + 40px); margin-top:-40px; clip-path:inset(40px 0 0 0); border:0; contain:layout size; transition:none;" loading="lazy" title="Lean Playground"></iframe><p>这里我们写了两个返回类型时命题的函数 <code class="docutils literal notranslate"><span class="pre">prop_nat_comm_1</span></code> 与 <code class="docutils literal notranslate"><span class="pre">prop_nat_comm_1</span></code> 。之后我们写了两个定理分别证明了这两个命题。在详细阅读证明之前，我们可以观察一下 <code class="docutils literal notranslate"><span class="pre">prof_not_finish</span></code> 这个证明<code class="docutils literal notranslate"><span class="pre">by</span></code> 后面有红色波浪线。当鼠标放上去的时候就可以看到下面这一段输出：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>unsolved goals
+n m : Nat
+⊢ prop_nat_comm_1 n mLean 4
+</pre></div>
+</div>
+<p>这段输出表示lean在提示我们证明没有完成，</p>
 <p>伟大的高斯告诉我们可以把这个序列颠倒着再加一遍。因此我们得到了证明：</p>
 <div class="math-wrapper docutils container">
 <div class="math notranslate nohighlight">
@@ -663,15 +658,15 @@ f(n-1) + n, &amp; n = 1,2,3,...
 </section>
 </section>
 <section id="id11">
-<h2>类型&lt;-&gt;命题、实例&lt;-&gt;证明<a class="headerlink" href="#id11" title="Link to this heading">¶</a></h2>
+<h2>类型&lt;-&gt;命题、实例&lt;-&gt;证明<a class="headerlink" href="#id11" title="链接到此标题。">¶</a></h2>
 </section>
 <section id="abc">
-<h2>abc<a class="headerlink" href="#abc" title="Link to this heading">¶</a></h2>
+<h2>abc<a class="headerlink" href="#abc" title="链接到此标题。">¶</a></h2>
 <p>theorem eq_symm (A : Type) (n m : A) (h : n = m) : m = n := by
 let h0 := &#64;Eq.rec
 let h1 := &#64;h0 A
 let h2 := &#64;h1 n
-let h3 := &#64;h2 (fun (y’ : A)=&gt; fun (h : n = y’ ) =&gt; y’ = n )
+let h3 := &#64;h2 (fun (y' : A)=&gt; fun (h : n = y' ) =&gt; y' = n )
 let h4 := &#64;h3 (Eq.refl n)
 let h5 := &#64;h4 m
 let h6 := &#64;h5 h
@@ -787,12 +782,12 @@ exact h6</p>
     </aside>
   </div>
 </div><script src="../_static/documentation_options.js?v=7d86a446"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/scripts/furo.js?v=5fa4622c"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../_static/scripts/furo.js?v=46bd48cc"></script>
     <script src="../_static/lean-playground.js?v=3d4fb19f"></script>
-    <script src="../_static/translations.js?v=beaddf03"></script>
+    <script src="../_static/translations.js?v=540d3cec"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     </body>
 </html>
