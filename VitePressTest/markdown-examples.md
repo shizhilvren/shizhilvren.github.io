@@ -205,8 +205,7 @@ $$
 
 下面首先使用lean表达计算部分 $\frac{n (n + 1) }{ 2}$
 
-```{lean-playground}
-:height: 200px
+```{lean-playground} :height: 200px
 def sum_zero_to_n_formula (n : Nat) : Nat :=
     n * (n + 1) / 2
 
@@ -224,8 +223,7 @@ def sum_zero_to_n_formula (n : Nat) : Nat :=
 
 其次来表述另一个计算部分 $\sum_{i=1}^n i$
 
-```{lean-playground}
-:height: 200px
+```{lean-playground} :height: 200px
 
 def sum_zero_to_n_directly (n : Nat) : Nat :=
   if n = 0 then 
@@ -266,8 +264,7 @@ $$
 \end{aligned}
 $$
 
-```{lean-playground}
-:height: 300px
+```{lean-playground} :height: 300px
 def prop_one_add_one_eq_two : Prop :=
   1 + 1 = 2
 
@@ -323,8 +320,7 @@ def prop_exists_n_add_one_eq_four : Prop :=
 
 接下来再来看另一组返回命题的函数
 
-```{lean-playground}
-:height: 350px
+```{lean-playground} :height: 350px
 def prop_nat_symm_1 (n : Nat) (m : Nat) : Prop :=
   n + m = m + n
 
@@ -376,8 +372,7 @@ $$
 
 更进一步我们可以将完整表示列出
 
-```{lean-playground}
-:height: 250px
+```{lean-playground} :height: 250px
 def sum_zero_to_n_formula (n : Nat) : Nat := 
   n * (n + 1) / 2
 
@@ -410,8 +405,7 @@ $$
 
 证明的书写总有固定的格式（无论会不会证，先写个证字把条件抄一遍再说）lean也不会例外。首先给出证明的基本样式：
 
-```{lean-playground}
-:height: 250px
+```{lean-playground} :height: 250px
 def sum_zero_to_n_formula (n : Nat) : Nat := sorry
 def sum_zero_to_n_directly (n : Nat) : Nat := sorry
 
@@ -456,8 +450,7 @@ theorem proof_eq_sum : prop_eq_sum := by
 在开始正式证明更复杂的东西之前，首先要学会如何应用已经存在的定理。
 毕竟我们没有必要手搓所有的定理，而且这些定理很多并不好证明。稍有不慎就会遇上大量未曾理解或者不曾思考的问题。给我们的学习信心带来大量的打击。为了暂时回避这个事情。我们就要站在巨人肩膀上更进一步。为此首先来看一点简单的命题与证明。
 
-```{lean-playground}
-:height: 470px
+```{lean-playground} :height: 470px
 def prop_nat_comm_1 (n : Nat) (m : Nat) : Prop :=
   n + m = m + n
 
