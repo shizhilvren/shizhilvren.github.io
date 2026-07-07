@@ -8,16 +8,16 @@ const teekConfig = defineTeekConfig({
     description: "A VitePress Site",
 
     themeConfig: {
-        // sidebar: [
-        //     {
-        //         text: 'Examples',
-        //         collapsed: false,
-        //         items: [
-        //             { text: 'Markdown Examples', link: '/markdown-examples' },
-        //             { text: 'Runtime API Examples', link: '/api-examples' }
-        //         ]
-        //     }
-        // ],
+        sidebar: [
+            {
+                text: 'Examples',
+                collapsed: false,
+                items: [
+                    { text: 'lean语言指北', link: '/lean语言指北' },
+                    { text: 'Runtime API Examples', link: '/api-examples' }
+                ]
+            }
+        ],
 
 
     },
@@ -40,7 +40,7 @@ export default defineConfig({
         // https://vitepress.dev/reference/default-theme-config
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Examples', link: '/markdown-examples' }
+            { text: 'Lean语言指北', link: '/lean语言指北' }
         ],
 
         socialLinks: [
