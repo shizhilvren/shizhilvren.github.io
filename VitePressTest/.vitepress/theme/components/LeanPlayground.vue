@@ -38,11 +38,35 @@ const props = defineProps({
 
 const isLoaded = ref(false)
 
+// Lean playground 的查询参数配置。抽离出来方便集中修改，
+// 键为参数名，值为参数值（会自动做 URI 编码）。
+const playgroundQueryParams = {
+  abbreviationCharacter: '\\',
+  acceptSuggestionOnEnter: 'false',
+  showGoalNames: 'true',
+  showExpectedType: 'true',
+  compress: 'true',
+  theme: 'light',
+  wordWrap: 'true',
+}
+
 const playgroundUrl = computed(() => {
   const baseUrl = 'https://live.lean-lang.org'
+  // 保留原始 ASCII 字符与换行（不做 UTF-8 字节化、不做 percent-encoding），
+  // 直接把源字符串交给 LZString 压缩，压缩产物再走 URI 友好编码。
   const cleanedCode = props.code ? props.code.trim() : ''
+  // if (typeof console !== 'undefined') {
+  //   console.log('[LeanPlayground] code before LZ compress:\n' + cleanedCode)
+  // }
   const compressedCode = LZString.compressToEncodedURIComponent(cleanedCode)
-  return `${baseUrl}/?abbreviationCharacter=%5C&acceptSuggestionOnEnter=false&showGoalNames=true&showExpectedType=true&compress=true&theme=light&wordWrap=true#codez=${compressedCode}`
+  // 再对压缩产物做一次 URI 编码，把 `+` `-` `$` 等潜在特殊字符转成 %XX 序列，
+  // 确保 fragment 在任何浏览器 / 代理环境下都能原样送达。
+  // 注意：encodeURIComponent 不会编码 `-`（unreserved），这里手动把 `-` 转为 %2F。
+  const urlSafeCode = encodeURIComponent(compressedCode).replace(/-/g, '%2F')
+  const queryString = Object.entries(playgroundQueryParams)
+    .map(([key, value]) => `${key}=${encodeURIComponent(value)}`)
+    .join('&')
+  return `${baseUrl}/?${queryString}#codez=${urlSafeCode}`
 })
 
 // --- 核心防滚动逻辑状态管理 ---
