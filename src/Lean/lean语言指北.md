@@ -1,3 +1,15 @@
+---
+# title: 机器定理证明
+date: 2026-07-01
+top: true
+categories:
+  - lean
+tags:
+  - Lean
+  - 定理证明
+description: 使用 Lean 语言进行交互式定理证明的入门指北
+---
+
 # 机器定理证明
 
 **机器定理证明（Automated / Interactive Theorem Proving）** 或者说“使用计算机来辅助证明定理”，是指借助计算机来书写、检验乃至自动发现（并证明）数学证明的一类技术。
@@ -178,7 +190,7 @@ $$
 \forall A, B
 $$
 
-其中 $A$ 是 $n \in \mathbb{N} $， $B$ 是 $\sum_{i=1}^n i = \frac{n(n+1)}{2}$ 。
+其中 $A$ 是 $n \in \mathbb{N}$， $B$ 是 $\sum_{i=1}^n i = \frac{n(n+1)}{2}$ 。
 它描述的是对于任意的 $A$ 条件成立则 $B$ 结论成立。一般我们将其读作对任意的 $A$ 则 $B$ 。
 
 再拆解 $B$ 这个部分
