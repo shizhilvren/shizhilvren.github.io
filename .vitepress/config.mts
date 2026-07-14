@@ -50,7 +50,7 @@ export default defineConfig({
         // https://vitepress.dev/reference/default-theme-config
         nav: [
             { text: 'Home', link: '/' },
-            { text: 'Lean 语言指北', link: '/Lena/lean语言指北' }
+            { text: 'Lean 语言指北', link: '/Lean/lean语言指北' }
         ],
 
         socialLinks: [
